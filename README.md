@@ -175,7 +175,7 @@ The [`receiver.ino`](receiver.ino) file initializes the **LoRa module** (SX1278)
 #### Install Required Libraries:
 The necessary libraries, **RadioLib** and **SPI**, are included in the `lib` folder of this repository. To install them:
 
-`git clone https://github.com/Swarup203/LoRa-Satellite-Communication-.git`
+`git clone https://github.com/silicon-sat/SiliconGS.git`
 
 - Navigate to the `libraries` folder in the cloned repository.
 - Copy the `RadioLib` and `SPI` folders.
