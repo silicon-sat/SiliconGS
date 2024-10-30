@@ -70,7 +70,7 @@ To ensure optimal reception and transmission for the ground station, a properly 
    - `Frequency` is the operating frequency in MHz.
    - 300 is the speed of light in a vacuum (in megahertz * meters).
 
-## For example, for a frequency of 433 MHz:
+**For example, for a frequency of 433 MHz**:
  Explanation:
  Wavelength (λ) of a radio wave is the distance it travels in one cycle and is given by 
  𝜆=𝑐/𝑓,
@@ -78,7 +78,7 @@ To ensure optimal reception and transmission for the ground station, a properly 
  c is the speed of light and 
  f is the frequency
 
-### For a LoRa system operating at 433 MHz:
+**For a LoRa system operating at 433 MHz**:
 
   L= 300 / (4 x 433)
   L≈ (300 / 1732) = **0.173 meters** = **17.3 cm**
@@ -97,7 +97,7 @@ To ensure optimal reception and transmission for the ground station, a properly 
 
 The radiation pattern of a dipole antenna is crucial for understanding its performance in different directions. A standard half-wave dipole antenna radiates energy in a **doughnut-shaped pattern**, with the strongest radiation occurring perpendicular to the axis of the antenna.
      <p align="center">
-     <img src="doc/images/Radiation_pattern.gif" width="600">
+     <img src="doc/images/Radiation_pattern.gif" width="200">
      </p>
      
 #### Key Characteristics:
