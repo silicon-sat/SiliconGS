@@ -83,8 +83,9 @@ To ensure optimal reception and transmission for the ground station, a properly 
   L= 300 / (4 x 433)
   L≈ (300 / 1732) = **0.173 meters** = **17.3 cm**
 ​
+3. **Simulate the Antenna** using free EM software 4NEC2 to simulate the designed antenna. Details can be found [here](https://github.com/silicon-sat/SI-2024-CubeSat#antennas)
 
-3. **Antenna tuning**:
+4. **Antenna tuning**:
    - Use a **nanoVNA** to tune the antenna for minimum **SWR (Standing Wave Ratio)**, ensuring it resonates well at the desired frequency.
    - Adjust the radials and main element length as needed to achieve a good match and reduce loss during signal transmission and reception.
   
