@@ -1,11 +1,11 @@
-# Tiny Satellite Ground Station
+![image](https://github.com/user-attachments/assets/083e0b63-e015-4240-af24-da13ea097c24)# Tiny Satellite Ground Station
 <p align="center">
 <img src="doc/images/main_Page.png" width="600">
 </p>
 
 In this project, we established a ground station using TinyGS with an ESP32 and SX1278 LoRa module. Our custom Arduino code receives telemetry data and visualizes it on the serial plotter, enabling seamless satellite communication. This innovative setup showcases the power of LoRa technology in connecting with orbiting satellites.
 
-# Hardware
+## Hardware
 
 This project utilizes the ESP32 microcontroller paired with the SX1278 LoRa module, providing an efficient solution for satellite communication. It is compatible with a variety of ESP32 development boards, ensuring flexibility in hardware selection.
 
@@ -27,7 +27,7 @@ Currently supported hardware includes:
 
 Additionally, any ESP32 board with an SX1278 module can be configured using templates, allowing for customization to meet specific project requirements. For more detailed information on setup and compatibility, please refer to the [documentation](https://github.com/G4lile0/tinyGS/wiki/Board-Templates)
 
-# Our Custom Ground Station Hardware Setup
+## Our Custom Ground Station Hardware Setup
 We have developed a custom ground station by soldering an ESP32 and LoRa SX1278 module onto a PCB. Additionally, we have integrated a 0.96-inch OLED display using an I2C connection for easy visualization. This setup is used to receive telemetry data efficiently and enhances the overall communication experience in our Tiny Satellite Ground Station.
 
 <p align="center">
@@ -38,7 +38,8 @@ We have developed a custom ground station by soldering an ESP32 and LoRa SX1278 
 
 ------
 
-#### Setting Up Your Board for the First Time . Just go to https://installer.tinygs.com and follow the instructions there
+### Setting Up Your Board for the First Time . 
+Just go to https://installer.tinygs.com and follow the instructions there
 
 -----
 
@@ -51,11 +52,12 @@ Later you can update your Ground Station via [local web OTA or auto update metho
 You can also use Arduino IDE, but is a longer and hard path, because you need to install all dependencies. [Arduino guide](https://github.com/G4lile0/tinyGS/wiki/Arduino-IDE)
 
 
-# Antenna
+## Antenna
 
 To ensure optimal reception and transmission for the ground station, a properly tuned antenna is crucial. For this project, we recommend designing and using a **¼-wave ground-plane antenna**. The steps involve both setting up the embedded system with the TinyGS firmware and tuning the antenna using a **nanoVNA** (Vector Network Analyzer) for precise measurements.
 
-### Steps:
+**Steps**:
+
 1. **Install and setup TinyGS firmware** on the ESP32-LoRa embedded system:
    - Follow the steps to install the TinyGS firmware, which enables the ESP32 to communicate with satellites and function as a LoRa ground station.
    - Ensure the ESP32 is properly connected to the LoRa module (SX1278) and all configurations are correct.
@@ -108,11 +110,11 @@ The radiation pattern of a dipole antenna is crucial for understanding its perfo
 
 This pattern makes dipole antennas ideal for ground station setups where coverage in all horizontal directions is needed, but the vertical direction is less critical.
 
-# Full-Duplex Communication Using RadioLib and Custom SPI in LoRa Subsystems
+# Full Duplex LoRa Communication
 
-By utilizing **RadioLib** and a **custom SPI** setup, we can create an efficient communication channel between two LoRa subsystems. Although LoRa technology is designed for half-duplex operation, we can simulate full-duplex communication by rapidly switching between transmit and receive modes.
+By utilizing **RadioLib** and a **SPI** setup, we can create an efficient communication channel between two LoRa subsystems. Although LoRa technology is designed for half-duplex operation, we can simulate full-duplex communication by rapidly switching between transmit and receive modes.
 
-#### Custom SPI Pin Configuration:
+## Custom SPI Pin Configuration:
 For the ESP32, we define custom SPI pins to interface with the SX1278 LoRa module:
 
 - **MOSI (Master Out Slave In)**: GPIO 27  
@@ -125,7 +127,7 @@ For the ESP32, we define custom SPI pins to interface with the SX1278 LoRa modul
 
 This custom SPI setup ensures reliable communication between the ESP32 and the LoRa transceiver, allowing us to manage data transmission and reception efficiently.
 
-#### Optimized Setup for Communication:
+## Optimized Setup for Communication:
 1. **Hardware Configuration**:
    - Two ESP32 boards, each connected to an SX1278 LoRa module using the custom SPI pinout listed above.
    - The nodes alternate between transmitting and receiving, simulating a full-duplex channel with minimal delay.
@@ -140,11 +142,11 @@ This custom SPI setup ensures reliable communication between the ESP32 and the L
 
 This setup provides a highly responsive and efficient communication link between two LoRa systems using a custom SPI configuration, simulating full-duplex functionality.
 
-# Developing the Ground Station Receiver System for CubeSat Telemetry
+# 433 MHz LoRa Communication Channel
 
 This section covers the development of the software system for receiving CubeSat telemetry data using the `RadioLib` and `SPI` libraries. The receiver code, [`receiver.ino`](receiver.ino), enables full communication with a LoRa-based CubeSat, forming the core component of our ground station.
 
-### How the Code Works:
+## Code Description:
 
 The [`receiver.ino`](receiver.ino) file initializes the **LoRa module** (SX1278) using custom SPI pins on the ESP32 and sets the necessary parameters, including frequency, bandwidth, and spreading factor. Once initialized, it begins to **listen for incoming telemetry packets** from the CubeSat.
 
@@ -174,7 +176,7 @@ The [`receiver.ino`](receiver.ino) file initializes the **LoRa module** (SX1278)
 - **Error Handling:**
    If a packet is malformed, the system flags a **CRC error**, while other error codes are logged for further debugging.
 
-#### Install Required Libraries:
+## Install Required Libraries:
 The necessary libraries, **RadioLib** and **SPI**, are included in the `lib` folder of this repository. To install them:
 
 `git clone https://github.com/silicon-sat/SiliconGS.git`
@@ -183,29 +185,33 @@ The necessary libraries, **RadioLib** and **SPI**, are included in the `lib` fol
 - Copy the `RadioLib` and `SPI` folders.
 - Paste them into your Arduino IDE’s libraries directory. This is typically located in your Documents under `Arduino/libraries`.
 
-#### Open the Receiver Code:
+ **Open the Receiver Code:**
+ 
 - Open the Arduino IDE.
 - Go to **File** > **Open** and select the `receiver.ino` file from the cloned repository.
 
-#### Select the Correct Board:
+**Select the Correct Board**:
+
 In the Arduino IDE:
 
 - Navigate to **Tools** > **Board** and select **ESP32 Dev Module** (or your specific ESP32 variant).
 
-#### Upload the Code:
+**Upload the Code**:
+
 - Connect your ESP32 board to your computer using a USB cable.
 - Select the COM port.
 - Click on the **Upload** button in the Arduino IDE (the right arrow icon).
 - Wait for the code to compile and upload to the ESP32.
 
-#### Open the Serial Monitor:
+**Open the Serial Monitor**:
+
 - After uploading, open the Serial Monitor by going to **Tools** > **Serial Monitor** (or pressing `Ctrl + Shift + M`).
 - Set the baud rate to `115200` to view the telemetry data being received.
 
 The system will now listen for incoming telemetry packets from the CubeSat, displaying the received data along with key parameters like **RSSI** and **SNR** in the Serial Monitor.
 
 
-# LoRa Satellite Communication using TinyGS and ESP32
+# A LoRa-based CubeSat Receiver
 
 ## Overview
 This guide explains how to set up communication between a satellite and a ground station using TinyGS, LoRa, and ESP32 modules. We will configure one ESP32 + LoRa module as a transmitter (via TinyGS) and another as a receiver using Arduino IDE.
