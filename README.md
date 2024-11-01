@@ -1,6 +1,5 @@
 # Setting up a TinyGS Ground Station
 
-![image](https://github.com/user-attachments/assets/083e0b63-e015-4240-af24-da13ea097c24)# Tiny Satellite Ground Station
 <p align="center">
 <img src="doc/images/main_Page.png" width="600">
 </p>
